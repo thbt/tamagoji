@@ -13,12 +13,12 @@ Your tamagoji has the following characteristics:
 * age (0..100)
 * health (0..5)
 * famine (0..5)
-* sleepy (false, true)
+* sleepy (true, false)
 * state [AWAKE, ASLEEP]
 
 Its environment has the following characteristic : 
 
-* cleanliness (0..3)
+* clean (true, false)
 
 To fulfill its need, a Tamagoji needs :
 

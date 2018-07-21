@@ -9,7 +9,7 @@ const state = {
     sleepy: false,
     state: 'AWAKE'
   },
-  dirtyness: 0
+  clean: true,
 };
 
 function tamagoji() {
