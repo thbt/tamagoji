@@ -16,19 +16,24 @@ Your tamagoji has the following characteristics:
 * sleepy (false, true)
 * state [AWAKE, ASLEEP]
 
+Its environment has the following characteristic : 
+
+* cleanliness (0..3)
+
 To fulfill its need, a Tamagoji needs :
 
-* To be fed (FEED event)
-* To be put to sleep (SLEEP event)
-* To be in a clean room (CLEAN event)
+* To be fed
+* To be put to sleep
+* To be in a clean room
 
 All of those actions translates to user-generated events.
 
 The system also generates the following events: 
 
 * Every 10 minutes, your Tamagoji will lose 1 famine point (FP)
-     * Once your Tamagoji is hungry (FP stat == 0), it will lose 1HP every 3 minutes
+    * Once your Tamagoji is hungry (FP stat == 0), it will lose 1HP every 3 minutes
+    * 1mn after eating, your tamagoji will poop 
 * After being awake for 30 minutes, your Tamagoji will become sleepy
-     * Once your Tamagoji is sleepy, it will lose 1HP every 3 minutes
-     * After 7 minutes of sleepiness, your Tamagoji will fall asleep on its own
+    * Once your Tamagoji is sleepy, it will lose 1HP every 3 minutes
+    * After 7 minutes of sleepiness, your Tamagoji will fall asleep on its own
 
