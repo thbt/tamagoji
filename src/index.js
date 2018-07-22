@@ -3,6 +3,7 @@
 const render = require('./render');
 const readline = require('readline');
 const commands = require('./commands');
+const universe = require('./universe');
 
 let state = {
   pet: {
@@ -30,10 +31,12 @@ process.stdin.on('keypress', (str, key) => {
       case 'F':
       case 'f':
         commands.feed(state);
+        setTimeout(() => universe.poop(state), 10 * 1000); // 10s
         break;
       case 'S':
       case 's':
         commands.sleep(state);
+        setTimeout(() => universe.wakeUp(state), 5 * 1000); // 5s 
         break;
       case 'X':
       case 'x':
@@ -45,12 +48,31 @@ process.stdin.on('keypress', (str, key) => {
   }
 });
 
-/**
- * Main function - contains the Game loop
- */
-function tamagoji() {
-  render.draw(state);
-  setInterval(tamagoji, 1000); // 1 FPS
+function checkGameOver(state) {
+  if (state.pet.health == 0) {
+    console.log('GAME OVER: your tamagoji died at ' + state.pet.age + ' years old.');
+    process.exit();
+  } else if (state.pet.age == 100) {
+    console.log('YOU WON! your tamagoji made it to 100 years old!')
+    process.exit();
+  }
 }
 
-tamagoji();
+function gameLoop() {
+  checkGameOver(state);
+  render.draw(state);
+}
+
+// Setup timers
+setInterval(gameLoop, 500); // 2 FPS
+
+setInterval(() => universe.age(state), 2 * 60 * 1000); // 2mn
+setInterval(() => universe.hunger(state), 10 * 1000); // 10s
+setInterval(() => {
+  universe.fatigue(state);
+  if (state.pet.fatigue == 0)
+    setTimeout(() => {
+      universe.selfSleep(state);
+      setTimeout(() => universe.wakeUp(state), 5 * 1000); // 5s
+    }, 25 * 1000); // 25s
+}, 10 * 1000); // 10s

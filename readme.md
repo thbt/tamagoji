@@ -30,12 +30,13 @@ All of those actions translates to user-generated events.
 
 The system also generates the following events: 
 
-* Every 10 minutes, your Tamagoji will lose 1 famine point (FP)
-    * Once your Tamagoji is hungry (FP stat == 0), it will lose 1HP every 3 minutes
-    * 1mn after eating, your tamagoji will poop 
-* After being awake for 30 minutes, your Tamagoji will become sleepy
-    * Once your Tamagoji is sleepy, it will lose 1HP every 3 minutes
+* Every 10 seconds, your Tamagoji will lose 1 hunger point (hunger event)
+    * Once your Tamagoji is hungry (hunger stat == 0), it will lose 1HP instead
+    * 10s after eating, your tamagoji will poop (poop event)
+* Every 10 seconds, your Tamagoji will become sleepy
+    * Once your Tamagoji is sleepy (fatigue state == 0), it will lose 1HP
     * After 7 minutes of sleepiness, your Tamagoji will fall asleep on its own
+* Every 2 minutes, your tamagoji will age
 
 The game is over and stops when your tamagoji dies or reach 100 years old.
 
