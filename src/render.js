@@ -13,7 +13,7 @@ exports.ageToEmoji = (age) => {
   else if (age >= 6 && age < 18) return emojis.kid;
   else if (age >= 18 && age < 60) return emojis.adult;
   else return emojis.elderly;
-}
+};
 
 exports.draw = (state) => {
   // hack: clear console

@@ -24,26 +24,26 @@ process.stdin.on('keypress', (str, key) => {
     process.exit();
   } else {
     switch (key.name) {
-      case 'C':
-      case 'c':
-        commands.clean(state);
-        break;
-      case 'F':
-      case 'f':
-        commands.feed(state);
-        setTimeout(() => universe.poop(state), 10 * 1000); // 10s
-        break;
-      case 'S':
-      case 's':
-        commands.sleep(state);
-        setTimeout(() => universe.wakeUp(state), 5 * 1000); // 5s 
-        break;
-      case 'X':
-      case 'x':
-        process.exit();
-        break;
-      default:
-        break;
+    case 'C':
+    case 'c':
+      commands.clean(state);
+      break;
+    case 'F':
+    case 'f':
+      commands.feed(state);
+      setTimeout(() => universe.poop(state), 10 * 1000); // 10s
+      break;
+    case 'S':
+    case 's':
+      commands.sleep(state);
+      setTimeout(() => universe.wakeUp(state), 5 * 1000); // 5s 
+      break;
+    case 'X':
+    case 'x':
+      process.exit();
+      break;
+    default:
+      break;
     }
   }
 });
@@ -53,7 +53,7 @@ function checkGameOver(state) {
     console.log('GAME OVER: your tamagoji died at ' + state.pet.age + ' years old.');
     process.exit();
   } else if (state.pet.age == 100) {
-    console.log('YOU WON! your tamagoji made it to 100 years old!')
+    console.log('YOU WON! your tamagoji made it to 100 years old!');
     process.exit();
   }
 }
