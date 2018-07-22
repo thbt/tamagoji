@@ -23,13 +23,7 @@ test('display man emoji from age 18 to 59', () => {
   }
 });
 
-test('display older man emoji from age 60 to 99', () => {
-  for (let i = 60; i < 100; i++) {
-    expect(render.ageToEmoji(i)).toBe('👴');
-  }
-});
-
-test('display skull emoji from age 101+', () => {
-  expect(render.ageToEmoji(101)).toBe('☠️');
-  expect(render.ageToEmoji(345)).toBe('☠️');
+test('display older man emoji from age 60+', () => {
+  expect(render.ageToEmoji(60)).toBe('👴');
+  expect(render.ageToEmoji(100)).toBe('👴');
 });

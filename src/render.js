@@ -4,7 +4,6 @@ const emojis = {
   kid: '‍👦', // 6..17yo
   adult: '‍👱‍', // 18..59yo
   elderly: '👴', // 60..99yo
-  dead: '☠️', // 100+ yo
   poop: '💩'
 };
 
@@ -13,8 +12,7 @@ exports.ageToEmoji = (age) => {
   else if (age >= 2 && age < 6) return emojis.infant;
   else if (age >= 6 && age < 18) return emojis.kid;
   else if (age >= 18 && age < 60) return emojis.adult;
-  else if (age >= 60 && age < 100) return emojis.elderly;
-  else return emojis.dead;
+  else return emojis.elderly;
 }
 
 exports.draw = (state) => {

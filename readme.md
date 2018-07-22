@@ -37,3 +37,5 @@ The system also generates the following events:
     * Once your Tamagoji is sleepy, it will lose 1HP every 3 minutes
     * After 7 minutes of sleepiness, your Tamagoji will fall asleep on its own
 
+The game is over and stops when your tamagoji dies or reach 100 years old.
+
