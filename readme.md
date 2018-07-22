@@ -12,9 +12,9 @@ Your tamagoji has the following characteristics:
 
 * age (0..100)
 * health (0..5)
-* famine (0..5)
-* sleepy (true, false)
-* state [AWAKE, ASLEEP]
+* hunger (0..5)
+* fatigue (0..5)
+* sleeping (true, false)
 
 Its environment has the following characteristic : 
 
@@ -22,9 +22,9 @@ Its environment has the following characteristic :
 
 To fulfill its need, a Tamagoji needs :
 
-* To be fed
-* To be put to sleep
-* To be in a clean room
+* To be fed (feed command)
+* To be put to sleep (sleep command)
+* To be in a clean room (clean command)
 
 All of those actions translates to user-generated events.
 

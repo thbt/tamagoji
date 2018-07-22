@@ -20,11 +20,11 @@ exports.draw = (state) => {
   process.stdout.write('\x1Bc');
 
   console.log(`
-  STATS: health: ${state.pet.health}/5 - famine: ${state.pet.famine}/5 - ${state.pet.state} - age: ${state.pet.age}/100
+  STATS: health: ${state.pet.health}/5 - hunger: ${state.pet.hunger}/5 - ${state.pet.sleeping ? 'ASLEEP' : 'AWAKE'} - age: ${state.pet.age}/100
   ╔══════════╗
   ║          ║\t S TO SLEEP
   ║  ${state.clean ? ' ' : emojis.poop} ${this.ageToEmoji(state.pet.age)}     ║\t C TO CLEAN
   ║          ║\t F TO FEED
   ╚══════════╝
   `);
-}
+};
