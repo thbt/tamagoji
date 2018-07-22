@@ -9,6 +9,7 @@ let state = {
     age: 0,
     health: 5,
     hunger: 5,
+    fatigue: 5,
     sleeping: false,
   },
   clean: true
