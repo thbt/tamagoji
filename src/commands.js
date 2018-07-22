@@ -6,7 +6,6 @@ exports.feed = (state) => {
 
 exports.sleep = (state) => {
   state.pet.sleeping = true;
-  state.pet.fatigue = 5;
   return state;
 }
 
