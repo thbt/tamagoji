@@ -6,6 +6,8 @@ Small command line nodejs app built for the [technical test of Image Intelligenc
 
 The game was developped with NodeJS, ESLint, and Jest.
 
+Run the tests with `npm test` and start the game with `npm start`.
+
 ## Pet
 
 Your tamagoji has the following characteristics:
@@ -33,9 +35,9 @@ The system also generates the following events:
 * Every 10 seconds, your Tamagoji will lose 1 hunger point (hunger event)
     * Once your Tamagoji is hungry (hunger stat == 0), it will lose 1HP instead
     * 10s after eating, your tamagoji will poop (poop event)
-* Every 10 seconds, your Tamagoji will become sleepy
+* Every 10 seconds, your Tamagoji will lose 1 fatigue point (fatigue event)
     * Once your Tamagoji is sleepy (fatigue state == 0), it will lose 1HP
-    * After 25 seconds of sleepiness, your Tamagoji will fall asleep on its own
+    * After 25 seconds of sleepiness, your Tamagoji will fall asleep on its own (selfSleep event)
 * Every 2 minutes, your tamagoji will age
 
 The game is over and stops when your tamagoji dies or reach 100 years old.
