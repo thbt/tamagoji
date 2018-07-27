@@ -26,20 +26,22 @@ module.exports = class Tamagoji {
     }).bind(this);
 
     this._fatigueEvent = (function() {
-      if (this.fatigue > 0) {
-        this.fatigue -= 1;
-        if (this.fatigue == 0) {
-          setTimeout(this._selfSleepEvent, 35 * 1000); // 35s
-        }
-      } else if (this.fatigue == 0 && this.health > 0) {
-        this.health -= 1;
+      if(!this.isSleeping) {
+        if (this.fatigue > 0) {
+          this.fatigue -= 1;
+          if (this.fatigue == 0) {
+            setTimeout(this._selfSleepEvent, 10 * 1000); // 35s
+          }
+        } else if (this.fatigue == 0 && this.health > 0) {
+          this.health -= 1;
+        }  
       }
     }).bind(this);
 
     this._selfSleepEvent = (function() {
       if (!this.isSleeping && this.fatigue == 0) {
         this.isSleeping = true;
-        setTimeout(this._wakeUpEvent, 5 * 1000);
+        setTimeout(this._wakeUpEvent, 8 * 1000);
       }
     }).bind(this);
 
@@ -48,9 +50,9 @@ module.exports = class Tamagoji {
       this.isSleeping = false;
     }).bind(this);
 
-    setInterval(this._ageEvent, 2 * 60 * 1000); // 2mn
-    setInterval(this._hungerEvent, 10 * 1000); // 10s
-    setInterval(this._fatigueEvent, 15 * 1000); // 15s
+    setInterval(this._ageEvent, 50 * 1000); // 50s
+    setInterval(this._hungerEvent, 8 * 1000); // 10s
+    setInterval(this._fatigueEvent, 4 * 1000); // 15s
   }
 
   // commands
@@ -58,13 +60,13 @@ module.exports = class Tamagoji {
   feed() {
     if (!this.isSleeping) {
       this.hunger = 5;
-      setTimeout(this._poopEvent, 5 * 1000);
+      setTimeout(this._poopEvent, 2 * 1000);
     }
   }
 
   sleep() {
     this.isSleeping = true;
-    setTimeout(this._wakeUpEvent, 10 * 1000);
+    setTimeout(this._wakeUpEvent, 8 * 1000);
   }
 
   clean() {

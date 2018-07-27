@@ -14,11 +14,11 @@ describe('actions', () => {
       expect(pet.hunger).toBe(5);
     });
 
-    test('should poop after 5s', () => {
+    test('should poop after 2s', () => {
       const pet = new Tamagoji();
       pet.feed();
       expect(setTimeout).toHaveBeenCalledTimes(1);
-      expect(setTimeout).toHaveBeenLastCalledWith(pet._poopEvent, 5 * 1000);
+      expect(setTimeout).toHaveBeenLastCalledWith(pet._poopEvent, 2 * 1000);
     });
 
     test('should not work if tamagoji is sleeping', () => {
@@ -38,11 +38,11 @@ describe('actions', () => {
       expect(pet.isSleeping).toBeTruthy();
     });
 
-    test('should wake the tamagoji after 10s', () => {
+    test('should wake the tamagoji after 8s', () => {
       const pet = new Tamagoji();
       pet.sleep();
       expect(setTimeout).toHaveBeenCalledTimes(1);
-      expect(setTimeout).toHaveBeenLastCalledWith(pet._wakeUpEvent, 10 * 1000);
+      expect(setTimeout).toHaveBeenLastCalledWith(pet._wakeUpEvent, 8 * 1000);
     });
   });
 
@@ -58,18 +58,18 @@ describe('actions', () => {
 
 describe('events', () => {
   describe('timers' , () => {
-    test('should execute age event every 2mn', () => {
+    test('should execute age event every 50s', () => {
       const pet = new Tamagoji();
-      expect(setInterval).toBeCalledWith(pet._ageEvent, 2 * 60 * 1000);
+      expect(setInterval).toBeCalledWith(pet._ageEvent, 50 * 1000);
     });
 
-    test('should execute fatigue event every 15s', () => {
+    test('should execute fatigue event every 4s', () => {
       const pet = new Tamagoji();
-      expect(setInterval).toBeCalledWith(pet._fatigueEvent, 15 * 1000);
+      expect(setInterval).toBeCalledWith(pet._fatigueEvent, 4 * 1000);
     });
-    test('should execute hunger event every 10s', () => {
+    test('should execute hunger event every 8s', () => {
       const pet = new Tamagoji();
-      expect(setInterval).toBeCalledWith(pet._hungerEvent, 10 * 1000);
+      expect(setInterval).toBeCalledWith(pet._hungerEvent, 8 * 1000);
     });
   });
 
@@ -122,12 +122,27 @@ describe('events', () => {
       expect(pet.health).toBe(4);
     });
 
+    test('should not do anything if tamagoji is asleep', () => {
+      const pet = new Tamagoji();
+      pet.isSleeping = true;
+      pet._fatigueEvent();
+      pet._fatigueEvent();
+      pet._fatigueEvent();
+      pet._fatigueEvent();
+      pet._fatigueEvent();
+      pet._fatigueEvent();
+      pet._fatigueEvent();
+      pet._fatigueEvent();
+      expect(pet.health).toBe(5);
+      expect(pet.fatigue).toBe(5);
+    });
+
     test('tamagoji should put himself to sleep after 35s when fatigue points reach 0', () => {
       const pet = new Tamagoji();
       pet.fatigue = 1;
       pet._fatigueEvent();
       expect(setTimeout).toHaveBeenCalledTimes(1);
-      expect(setTimeout).toHaveBeenLastCalledWith(pet._selfSleepEvent, 35 * 1000);
+      expect(setTimeout).toHaveBeenLastCalledWith(pet._selfSleepEvent, 10 * 1000);
     });
   });
   

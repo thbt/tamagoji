@@ -53,7 +53,7 @@ function gameLoop() {
 
 // Setup timers
 function tamagoji() {
-  setInterval(gameLoop, 500); // 2 FPS
+  setInterval(gameLoop, 30); // 2 FPS
 }
 
 tamagoji();
