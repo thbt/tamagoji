@@ -4,7 +4,11 @@
 
 Small command line nodejs app built for the [technical test of Image Intelligence](https://gist.github.com/davidvuong/90f8ac0916dd3e14fad014bc814614ff).
 
-The game was developped with NodeJS, ESLint, and Jest.
+The game was developped with NodeJS, ESLint, and Jest. 
+
+The logic of how the tamagoji live is in the Tamagoji class. Interacting with an instance is done through the public methods.
+
+Thanks to NodeJS single threaded event loop, we don't have to worry about concurrency.
 
 Run the tests with `npm test` and start the game with `npm start`.
 
@@ -16,11 +20,9 @@ Your tamagoji has the following characteristics:
 * health (0..5)
 * hunger (0..5)
 * fatigue (0..5)
-* sleeping (true, false)
+* isSleeping (true, false)
+* isClean (true, false)
 
-Its environment has the following characteristic : 
-
-* clean (true, false)
 
 To fulfill its need, a Tamagoji needs :
 

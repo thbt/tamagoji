@@ -1,13 +1,19 @@
 'use strict';
 
+/**
+ * Tamagoji class
+ */
 module.exports = class Tamagoji {
   constructor() {
+    // state of the tamagoji -- used by the rendering function
     this.age = 0;
     this.health = 5;
     this.hunger = 5;
     this.fatigue = 5;
     this.isSleeping = false;
     this.isClean = true;
+
+    // self generated events -- should not be called outside that class
 
     this._ageEvent = (function() {
       this.age += 1;
@@ -55,7 +61,7 @@ module.exports = class Tamagoji {
     setInterval(this._fatigueEvent, 4 * 1000); // 15s
   }
 
-  // commands
+  // commands -- public api
 
   feed() {
     if (!this.isSleeping) {
