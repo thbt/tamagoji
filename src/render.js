@@ -23,7 +23,7 @@ exports.draw = (pet) => {
   STATS: health: ${pet.health}/5 - hunger: ${pet.hunger}/5 - fatigue: ${pet.fatigue}/5 (${pet.isSleeping ? 'ASLEEP' : 'AWAKE'}) - age: ${pet.age}/100
   ╔══════════╗
   ║          ║\t S TO SLEEP
-  ║  ${pet.clean ? ' ' : emojis.poop} ${this.ageToEmoji(pet.age)}     ║\t C TO CLEAN
+  ║  ${pet.isClean ? ' ' : emojis.poop} ${this.ageToEmoji(pet.age)}     ║\t C TO CLEAN
   ║          ║\t F TO FEED
   ╚══════════╝
   `);
