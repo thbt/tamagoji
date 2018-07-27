@@ -15,15 +15,15 @@ exports.ageToEmoji = (age) => {
   else return emojis.elderly;
 };
 
-exports.draw = (state) => {
+exports.draw = (pet) => {
   // hack: clear console
   process.stdout.write('\x1Bc');
 
   console.log(`
-  STATS: health: ${state.pet.health}/5 - hunger: ${state.pet.hunger}/5 - fatigue: ${state.pet.fatigue}/5 (${state.pet.sleeping ? 'ASLEEP' : 'AWAKE'}) - age: ${state.pet.age}/100
+  STATS: health: ${pet.health}/5 - hunger: ${pet.hunger}/5 - fatigue: ${pet.fatigue}/5 (${pet.isSleeping ? 'ASLEEP' : 'AWAKE'}) - age: ${pet.age}/100
   ╔══════════╗
   ║          ║\t S TO SLEEP
-  ║  ${state.clean ? ' ' : emojis.poop} ${this.ageToEmoji(state.pet.age)}     ║\t C TO CLEAN
+  ║  ${pet.clean ? ' ' : emojis.poop} ${this.ageToEmoji(pet.age)}     ║\t C TO CLEAN
   ║          ║\t F TO FEED
   ╚══════════╝
   `);
